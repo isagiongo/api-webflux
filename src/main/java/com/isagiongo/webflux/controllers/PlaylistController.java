@@ -2,10 +2,7 @@ package com.isagiongo.webflux.controllers;
 
 import com.isagiongo.webflux.documents.Playlist;
 import com.isagiongo.webflux.services.PlaylistService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -29,7 +26,7 @@ public class PlaylistController {
     }
 
     @PostMapping("/playlists")
-    public Mono<Playlist> salvaPlaylist(Playlist playlist) {
+    public Mono<Playlist> salvaPlaylist(@RequestBody Playlist playlist) {
         return playlistService.save(playlist);
     }
 }
